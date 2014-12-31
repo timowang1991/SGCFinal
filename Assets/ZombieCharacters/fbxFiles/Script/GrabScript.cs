@@ -76,12 +76,13 @@ public class GrabScript : MonoBehaviour {
 
 		if(displacement.magnitude >= speedValveToThrow &&
 		   displacement.y < 0 &&
-		   displacement.z < 0){
+		   displacement.z > 0){
 			foreach(Collider collider in colliderList){
 				collider.transform.parent = null;
 				collider.rigidbody.useGravity = true;
 				collider.rigidbody.isKinematic = false;
-				collider.rigidbody.velocity = displacement * ratio;
+//				collider.rigidbody.velocity = displacement * ratio;
+				collider.rigidbody.AddForce(displacement * ratio);
 			}
 		}
 	}
