@@ -55,6 +55,9 @@
      <Compile Include="Assets\CNControls\Scripts\CNJoystick.cs" />
      <Compile Include="Assets\CNControls\Scripts\CNThrowableTouchpad.cs" />
      <Compile Include="Assets\CNControls\Scripts\CNTouchpad.cs" />
+     <Compile Include="Assets\Elementals\Prefabs\Fire\Fire.cs" />
+     <Compile Include="Assets\Elementals\Scripts\OrbitCamera.cs" />
+     <Compile Include="Assets\Elementals\Scripts\TestParticles.cs" />
      <Compile Include="Assets\GesturesDemo\Scripts\GestureListener.cs" />
      <Compile Include="Assets\GesturesDemo\Scripts\PresentationScript.cs" />
      <Compile Include="Assets\InteractionDemo\Scripts\GrabDropScript.cs" />
@@ -212,6 +215,9 @@
      <Compile Include="Assets\Scripts\Network\NetworkRoomLogic2.cs" />
      <Compile Include="Assets\Scripts\TestArray.cs" />
      <Compile Include="Assets\ZombieCharacters\Animations\LocomotionMale\LocomotionMaleScript.cs" />
+     <Compile Include="Assets\ZombieCharacters\fbxFiles\Script\Eat.cs" />
+     <Compile Include="Assets\ZombieCharacters\fbxFiles\Script\GrabCylinder.cs" />
+     <Compile Include="Assets\ZombieCharacters\fbxFiles\Script\GrabScript.cs" />
      <Compile Include="Assets\_CharacterSystem\Character_System\Scripts\DemoGUI.cs" />
      <Compile Include="Assets\_CharacterSystem\Character_System\Scripts\HeroCamera.cs" />
      <Compile Include="Assets\_CharacterSystem\Character_System\Scripts\HeroCtrl.cs" />
@@ -271,6 +277,7 @@
      <None Include="Assets\_CharacterSystem\Tutorial_Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\CreaseApply.shader" />
      <None Include="Assets\_CharacterSystem\Tutorial_Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\ChromaticAberrationShader.shader" />
      <None Include="Assets\_CharacterSystem\Tutorial_Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\GlobalFog.shader" />
+     <None Include="Assets\Elementals\!Readme.txt" />
      <None Include="Assets\_CharacterSystem\Tutorial_Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\Contrast Stretch\Luminance.shader" />
      <None Include="Assets\_CharacterSystem\Tutorial_Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\ColorCorrectionSelective.shader" />
      <None Include="Assets\_CharacterSystem\Tutorial_Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_DepthOfField\Bokeh34.shader" />
