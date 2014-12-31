@@ -212,6 +212,7 @@
      <Compile Include="Assets\Scripts\HeroCamera_New.cs" />
      <Compile Include="Assets\Scripts\Network\CatapultNetSync.cs" />
      <Compile Include="Assets\Scripts\Network\CharacterNetSync2.cs" />
+     <Compile Include="Assets\Scripts\Network\GiantNetSync.cs" />
      <Compile Include="Assets\Scripts\Network\HeroCtrl_Net2.cs" />
      <Compile Include="Assets\Scripts\Network\NetworkRoomLogic2.cs" />
      <Compile Include="Assets\Scripts\TestArray.cs" />
