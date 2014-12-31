@@ -5,28 +5,23 @@ public class Fire : MonoBehaviour {
 	public string flammableLayerName = "Flammable";
 	public float stayBurningTime;
 
-	public string terrainTagName;
-	public GameObject groundFire;
-
-	bool isOnFire;
+	//bool isOnFire;
 	float onFireTimer;
 
 	// Use this for initialization
 	void Start () {
 		onFireTimer = 0.0f;
-		isOnFire = particleSystem.playOnAwake;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if (isOnFire) {
+		if (particleSystem.isPlaying) {
 			onFireTimer += Time.deltaTime;
 
 			if(onFireTimer < stayBurningTime){
 				fixRotation();
 			} else{
 				particleSystem.Stop();
-				isOnFire = false;
 			}
 		}
 	}
@@ -37,12 +32,13 @@ public class Fire : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(Collider other){
-		if(isOnFire){
+		if(particleSystem.isPlaying){
 			OnParticleCollision (other.gameObject);
 		}
 	}
 
 	void OnParticleCollision(GameObject other){
+//		Debug.Log ("OnParticleCollision" + other.gameObject.name + " " + other.gameObject.layer);
 		if(other.layer == LayerMask.NameToLayer(flammableLayerName)){
 			Fire otherFire = other.GetComponentInChildren<Fire>();
 			if(otherFire == null)
@@ -50,23 +46,14 @@ public class Fire : MonoBehaviour {
 			otherFire.caughtFire();
 		}
 
-		if(other.tag == terrainTagName){
-			GameObject fireOnGround = GameObject.Instantiate(groundFire) as GameObject;
-			Vector3 groundFirePosition = new Vector3(transform.position.x,
-			                                         40,
-			                                         transform.position.z);
-			fireOnGround.transform.position = groundFirePosition;
-		}
 	}
 
 	// called by other Fire objects
 	public void caughtFire(){
-		if(isOnFire){
+		if(particleSystem.isPlaying){
 			onFireTimer = 0.0f;
 			return;
 		}
-
-		isOnFire = true;
 		onFireTimer = 0.0f;
 		particleSystem.Play ();
 	}

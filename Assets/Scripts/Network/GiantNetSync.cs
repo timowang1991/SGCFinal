@@ -20,7 +20,10 @@ public class GiantNetSync : Photon.MonoBehaviour //enable it to access GameObjec
 	[HideInInspector]
 	public Quaternion[] correctBodyPartRotations = null;
 
+	//bool startToUpdate;
+
 	void Awake() {
+		//startToUpdate = false;
 		int numBodyPartNames = bodyPartNames.Length;
 		totalNumBodyParts = (numBodyPartNames - numNonDuplicateBodyParts) * 2 + numNonDuplicateBodyParts;
 		bodyPartTransforms = new Transform[totalNumBodyParts];
@@ -44,12 +47,13 @@ public class GiantNetSync : Photon.MonoBehaviour //enable it to access GameObjec
 				}
 			}
 		}
+
 	}
 	
 	// Update is called once per frame
 	void Update()
 	{
-		if (!photonView.isMine)
+		if (!photonView.isMine && !photonView.isSceneView)
 		{
 			Debug.Log ("Giant is not mine");
 			for(int i = 0;i < totalNumBodyParts;i++) {

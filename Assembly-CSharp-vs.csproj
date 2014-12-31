@@ -215,10 +215,13 @@
      <Compile Include="Assets\Scripts\Network\GiantNetSync.cs" />
      <Compile Include="Assets\Scripts\Network\HeroCtrl_Net2.cs" />
      <Compile Include="Assets\Scripts\Network\NetworkRoomLogic2.cs" />
+     <Compile Include="Assets\Scripts\Network\TreeNetSync.cs" />
      <Compile Include="Assets\Scripts\TestArray.cs" />
+     <Compile Include="Assets\Scripts\TreeLifeCycle.cs" />
      <Compile Include="Assets\ZombieCharacters\Animations\LocomotionMale\LocomotionMaleScript.cs" />
      <Compile Include="Assets\ZombieCharacters\fbxFiles\Script\Eat.cs" />
      <Compile Include="Assets\ZombieCharacters\fbxFiles\Script\GiantHealth.cs" />
+     <Compile Include="Assets\ZombieCharacters\fbxFiles\Script\GrabAndReleaseTree.cs" />
      <Compile Include="Assets\ZombieCharacters\fbxFiles\Script\GrabPositionCalibration.cs" />
      <Compile Include="Assets\ZombieCharacters\fbxFiles\Script\GrabScript.cs" />
      <Compile Include="Assets\_CharacterSystem\Character_System\Scripts\DemoGUI.cs" />
