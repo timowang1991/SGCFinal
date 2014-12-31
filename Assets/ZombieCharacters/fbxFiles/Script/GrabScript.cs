@@ -46,10 +46,10 @@ public class GrabScript : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(Collider other){
-		Debug.Log ("OnTriggerEnter : object" + other.gameObject.name);
+		//Debug.Log ("OnTriggerEnter : object" + other.gameObject.name);
 		if (other.gameObject.layer == LayerMask.NameToLayer (grabbableLayerName) &&
 		    colliderList.Count < maxNumOfObjectsOnHand) {
-			Debug.Log("OnTriggerEnter : " + other.gameObject.name + "after if");
+			//Debug.Log("OnTriggerEnter : " + other.gameObject.name + "after if");
 			colliderList.Add (other);
 			other.transform.parent = this.transform;
 			other.rigidbody.isKinematic = true;

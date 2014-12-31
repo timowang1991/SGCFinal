@@ -204,6 +204,7 @@
      <Compile Include="Assets\Photon Unity Networking\UtilityScripts\SmoothSyncMovement.cs" />
      <Compile Include="Assets\Photon Unity Networking\UtilityScripts\SupportLogger.cs" />
      <Compile Include="Assets\Photon Unity Networking\UtilityScripts\TimeKeeper.cs" />
+     <Compile Include="Assets\Scripts\ArrowSelfScript.cs" />
      <Compile Include="Assets\Scripts\BigLittleGameLogic.cs" />
      <Compile Include="Assets\Scripts\CatapultsController.cs" />
      <Compile Include="Assets\Scripts\ConfigScript.cs" />
@@ -216,7 +217,8 @@
      <Compile Include="Assets\Scripts\TestArray.cs" />
      <Compile Include="Assets\ZombieCharacters\Animations\LocomotionMale\LocomotionMaleScript.cs" />
      <Compile Include="Assets\ZombieCharacters\fbxFiles\Script\Eat.cs" />
-     <Compile Include="Assets\ZombieCharacters\fbxFiles\Script\GrabCylinder.cs" />
+     <Compile Include="Assets\ZombieCharacters\fbxFiles\Script\GiantHealth.cs" />
+     <Compile Include="Assets\ZombieCharacters\fbxFiles\Script\GrabPositionCalibration.cs" />
      <Compile Include="Assets\ZombieCharacters\fbxFiles\Script\GrabScript.cs" />
      <Compile Include="Assets\_CharacterSystem\Character_System\Scripts\DemoGUI.cs" />
      <Compile Include="Assets\_CharacterSystem\Character_System\Scripts\HeroCamera.cs" />
