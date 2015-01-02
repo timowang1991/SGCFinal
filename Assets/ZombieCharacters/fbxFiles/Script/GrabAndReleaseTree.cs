@@ -23,7 +23,7 @@ public class GrabAndReleaseTree : MonoBehaviour {
 
 	void OnTriggerExit(Collider other){
 		if(other.gameObject.tag == "BigTreeTrunk"){
-			Debug.Log(other.gameObject.tag);
+			//Debug.Log(other.gameObject.tag);
 			other.gameObject.GetComponent<TreeLifeCycle>().countDownDestroy();
 		}
 	}

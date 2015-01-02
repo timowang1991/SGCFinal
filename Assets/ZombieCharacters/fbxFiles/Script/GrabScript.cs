@@ -29,6 +29,7 @@ public class GrabScript : MonoBehaviour {
 	void Update () {
 		recordPosition ();
 		computeVelocity ();
+		holdingObjects();
 		throwObjects ();
 	}
 
@@ -45,18 +46,31 @@ public class GrabScript : MonoBehaviour {
 //		Debug.Log ("displacement magnitude : " + displacement.magnitude);
 	}
 
+	void holdingObjects(){
+		foreach(Collider collider in colliderList){
+			collider.transform.position = transform.position;
+		}
+	}
+
 	void OnTriggerEnter(Collider other){
 		//Debug.Log ("OnTriggerEnter : object" + other.gameObject.name);
 		if (other.gameObject.layer == LayerMask.NameToLayer (grabbableLayerName) &&
 		    colliderList.Count < maxNumOfObjectsOnHand) {
 			//Debug.Log("OnTriggerEnter : " + other.gameObject.name + "after if");
 			colliderList.Add (other);
-			other.transform.parent = this.transform;
-			other.rigidbody.isKinematic = true;
-			other.rigidbody.useGravity = false;
+//			other.transform.parent = this.transform;
+			if(other.gameObject.tag == "BigTreeTrunk")
+			{
+				//Debug.Log("BigTreeTrunkAttach");
+				other.gameObject.GetComponent<TreeLifeCycle>().AttachPoint(this.gameObject.tag);
+			}
+			//other.transform.position = this.transform.position;
+//			other.rigidbody.isKinematic = true;
+//			other.rigidbody.useGravity = false;
 		}
 	}
-	
+
+
 	void OnTriggerExit(Collider other){
 		if(!colliderList.Contains(other)){
 			return;
@@ -64,9 +78,13 @@ public class GrabScript : MonoBehaviour {
 
 		if(other.gameObject.layer == LayerMask.NameToLayer(grabbableLayerName)){
 			colliderList.Remove (other);
-			other.transform.parent = null;
+//			other.transform.parent = null;
 			other.rigidbody.useGravity = true;
 			other.rigidbody.isKinematic = false;
+			if(other.gameObject.tag == "BigTreeTrunk")
+			{
+				other.gameObject.GetComponent<TreeLifeCycle>().DetachPoint();
+			}
 		}
 	}
 
@@ -78,7 +96,11 @@ public class GrabScript : MonoBehaviour {
 		   displacement.y < 0 &&
 		   displacement.z > 0){
 			foreach(Collider collider in colliderList){
-				collider.transform.parent = null;
+				if(collider.gameObject.tag == "BigTreeTrunk")
+				{
+					collider.gameObject.GetComponent<TreeLifeCycle>().DetachPoint();
+				}
+				//colliderList.Remove (collider);
 				collider.rigidbody.useGravity = true;
 				collider.rigidbody.isKinematic = false;
 //				collider.rigidbody.velocity = displacement * ratio;

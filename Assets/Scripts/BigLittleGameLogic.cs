@@ -17,12 +17,13 @@ public class BigLittleGameLogic : Photon.MonoBehaviour {
 	public void OnJoinedRoom()
 	{
 		// game logic: if this is the only player, then this player is big man
-		/*
-		if (PhotonNetwork.playerList.Length == 1)
-		{
-			bigManID = PhotonNetwork.player.ID;
-		}
-		*/
+
+		//if (PhotonNetwork.playerList.Length == 1)
+		//{
+		//	bigManID = PhotonNetwork.player.ID;
+		//	Debug.Log("Client BigmanId" + bigManID);
+		//}
+
 
 	}
 
@@ -44,11 +45,11 @@ public class BigLittleGameLogic : Photon.MonoBehaviour {
 		
 		// when new players join, we send "who's it" to let them know
 		// only one player will do this: the "master"
-		/*
-		if (player.ID == bigManID) {
-			NoticeWhoIsBigMan(bigManID);
-		}
-		*/
+
+		//if (player.ID == bigManID) {
+		//NoticeWhoIsBigMan(bigManID);
+		//}
+
 		if (currPlayerCharCtrl != null && !player.isLocal) {
 			initVarsByRPC(currPlayerCharCtrl, player);
 		}
@@ -57,9 +58,13 @@ public class BigLittleGameLogic : Photon.MonoBehaviour {
 	public void NoticeWhoIsBigMan(int playerID)
 	{
 		Debug.Log ("message sent in big man");
-		photonView.RPC("TagBigMan", PhotonTargets.Others, playerID);
+		photonView.RPC("TagBigMan", PhotonTargets.All, playerID);
 	}
-	
+	public int GetbigManID()
+	{
+		return bigManID;
+	}
+
 	[RPC]
 	public void TagBigMan(int playerID) {
 		bigManID = playerID;
